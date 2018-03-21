@@ -7,25 +7,25 @@ import ch.epfl.dias.store.row.DBTuple;
 
 public class Scan implements VolcanoOperator {
 
-	// TODO: Add required structures
+	private Store store;
+	private int ctr;
 
 	public Scan(Store store) {
-		// TODO: Implement
+		this.store = store;
+		ctr = 0;
 	}
 
 	@Override
 	public void open() {
-		// TODO: Implement
+		store.load();
 	}
 
 	@Override
 	public DBTuple next() {
-		// TODO: Implement
-		return null;
+		return store.getRow(ctr++);
 	}
 
 	@Override
 	public void close() {
-		// TODO: Implement
 	}
 }
